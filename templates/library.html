@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Моя библиотека</h2>
+<ul>
+    {% for book in books %}
+        <li>{{ book.title }} -
+            <a href="{{ url_for('read', book_id=book.id) }}">Читать</a>
+        </li>
+    {% else %}
+        <li>Нет загруженных книг</li>
+    {% endfor %}
+</ul>
+{% endblock %}

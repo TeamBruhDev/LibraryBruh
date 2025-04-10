@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>{{ title }}</h2>
+<pre style="white-space: pre-wrap;">{{ page }}</pre>
+{% if next_pos %}
+    <a href="{{ url_for('bookmark', book_id=book_id, position=next_pos) }}">Далее</a>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head><title>LibraryBruh</title></head>
+<body>
+    <nav>
+        <a href="{{ url_for('index') }}">Главная</a>
+        {% if current_user.is_authenticated %}
+            <a href="{{ url_for('library') }}">Моя библиотека</a>
+            <a href="{{ url_for('upload') }}">Загрузить книгу</a>
+            <a href="{{ url_for('logout') }}">Выйти</a>
+        {% else %}
+            <a href="{{ url_for('login') }}">Вход</a>
+            <a href="{{ url_for('register') }}">Регистрация</a>
+        {% endif %}
+    </nav>
+    <hr>
+    {% block content %}{% endblock %}
+</body>
+</html>
